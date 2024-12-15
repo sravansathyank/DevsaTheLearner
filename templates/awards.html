@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards</title>
+    <style>
+        /* Background settings */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url("{% static 'images/mouse.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Main container */
+        .container {
+            text-align: center;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out; /* Fade-in effect */
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: floatText 3s infinite alternate ease-in-out; /* Floating text animation */
+        }
+
+        /* Courses section */
+        .courses {
+            margin: 20px 0;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Sector headers */
+        .sector {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            text-decoration: underline;
+            color: #ffdd57;
+            animation: pulse 2s infinite; /* Pulsing animation for sectors */
+        }
+
+        /* Certificate image */
+        .certificate {
+            margin-top: 30px;
+        }
+
+        .certificate img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out; /* Scale on hover */
+        }
+
+        .certificate img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer message */
+        .footer {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            animation: slideIn 2s ease-in-out; /* Slide-in animation for footer */
+        }
+
+        /* Back button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .back-btn:hover {
+            background-color: #ff6f61;
+            transform: scale(1.1);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatText {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                color: #ffdd57;
+            }
+            50% {
+                color: #ffffff;
+            }
+            100% {
+                color: #ffdd57;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="{% url 'quote' %}" class="back-btn">BACK</a>
+
+    <div class="container">
+        <h1>Explore Our Courses and Earn a Free Certificate!</h1>
+
+        <p>We provide cutting-edge courses in the following sectors:</p>
+
+        <!-- IT Sector -->
+        <div class="courses">
+            <div class="sector">IT Sector</div>
+            <ul>
+                <li>Quantum Computing</li>
+                <li>Augmented Reality</li>
+                <li>Block Chain</li>
+                <li>Internet of Things (IoT)</li>
+                <li>Virtual Reality</li>
+                <li>Machine Learning</li>
+            </ul>
+
+            <!-- Electrical and Electronics Sector -->
+            <div class="sector">Electrical and Electronics</div>
+            <ul>
+                <li>Smart Grids</li>
+                <li>Robotics and Automation</li>
+                <li>Power Electronics</li>
+                <li>Wireless Power Transfer</li>
+                <li>Augmented Reality</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            Complete the learning journey and earn a <strong>Free Certificate!</strong>
+        </div>
+
+        <!-- Certificate Image -->
+        <div class="certificate">
+            <img src="{% static 'images/certificate.jpg' %}" alt="Certificate">
+        </div>
+    </div>
+</body>
+</html>

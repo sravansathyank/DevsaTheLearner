@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUGMENTED REALITY</title>
+    <style>
+        /* Base Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            background-image: url("{% static 'images/real.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Keyframes for Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Back Button Styling */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        /* Title Styling */
+        h1 {
+            margin-top: 80px;
+            font-size: 3rem;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        /* Content Styling */
+        .content {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            color: #0056b3;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        ul li::before {
+            content: '➤';
+            color: #007bff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Image Container */
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .image-container img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Video Container */
+        .video-container {
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .video-container iframe {
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'main' %}" class="back-btn">BACK</a>
+
+    <h1>AUGMENTED REALITY</h1>
+
+    <div class="content">
+        <h2>What is Augmented Reality?</h2>
+        <p>Augmented Reality (AR) seamlessly combines the physical world with computer-generated elements, offering users an enhanced perception of reality. By layering virtual objects, graphics, or information onto real-world environments, AR creates immersive and interactive experiences.</p>
+        
+        <h2>Applications of Augmented Reality</h2>
+        <p>AR has rapidly evolved into a transformative technology, with applications spanning multiple industries:</p>
+        <ul>
+            <li><strong>Gaming and Entertainment:</strong> Popular AR games like Pokémon Go and immersive storytelling experiences bring virtual characters and objects into our physical surroundings.</li>
+            <li><strong>Education and Training:</strong> AR provides interactive learning experiences, enabling students and professionals to visualize complex concepts and scenarios, such as anatomy or mechanical systems.</li>
+            <li><strong>Healthcare:</strong> AR assists surgeons with real-time visualizations during procedures and enhances medical training with realistic simulations.</li>
+            <li><strong>Retail and E-commerce:</strong> Virtual try-ons and AR-powered shopping experiences help customers visualize products before purchasing, revolutionizing the retail landscape.</li>
+            <li><strong>Architecture and Design:</strong> Architects and designers use AR to present 3D models and blueprints in real-world contexts, improving planning and client engagement.</li>
+        </ul>
+        
+        <h2>How Does AR Work?</h2>
+        <p>AR relies on advanced technologies such as:</p>
+        <ul>
+            <li><strong>Sensors and Cameras:</strong> These capture the real-world environment, enabling the AR system to understand and map the surroundings.</li>
+            <li><strong>Processing Power:</strong> Devices like smartphones and AR glasses process the captured data and render virtual elements in real time.</li>
+            <li><strong>Display Devices:</strong> Screens, headsets, or AR glasses project the augmented content for users to see.</li>
+        </ul>
+    </div>
+
+    <div class="image-container">
+        <img src="{% static 'images/aug.jpg' %}" alt="Augmented Reality Example">
+    </div>
+
+    <div class="video-container">
+        <h2>Watch a Video on Augmented Reality</h2>
+        <iframe width="660" height="371" src="https://www.youtube.com/embed/D8V2nxeWHmI" 
+            title="The Future of Augmented Reality (2030)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>

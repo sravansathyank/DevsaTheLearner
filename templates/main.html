@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        /* Style for the main page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("{% static 'images/don.jpg' %}"); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Makes the background fixed while scrolling */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Floating effect for "CHOOSE A SECTOR" */
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 3rem;
+            color: #fff; /* White text for better visibility against the background */
+            animation: floating 2s ease-in-out infinite; /* Apply floating animation */
+        }
+        .know-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+
+        /* Style for the message box */
+        #message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+
+        /* Style for the "BACK" button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the buttons */
+        .sector-btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .sector-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Container for displaying images and messages */
+        .section {
+            display: none; /* Hidden by default */
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .section div {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .section img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section img:hover {
+            transform: scale(1.1); /* Enhance the image size on hover */
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #fff; /* White text for better visibility */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACK Button -->
+    <button class="button know-btn" onclick="showKnowMessage()">Know</button>
+    <a href="{% url 'quote' %}" class="back-btn">BACK</a>
+    <div id="message-box">
+        Go through each course provided here. After completion, click on "Get Certificates" button.
+    </div>
+
+    <!-- CHOOSE A SECTOR with floating animation -->
+    <h1>CHOOSE A SECTOR</h1>
+
+    <!-- Buttons for selecting a sector -->
+    <button class="sector-btn" onclick="showSection('it')">IT Sector</button>
+    <button class="sector-btn" onclick="showSection('ele')">Electrical and Electronics</button>
+    <button class="sector-btn" onclick="location.href='{% url 'certificate_page' %}'">Get Certificate</button>
+    <!--<button class="sector-btn" onclick="showSection('passive')">Passive Income</button>-->
+
+    <!-- IT Sector Section -->
+    <div id="it" class="section">
+        <div>
+            <!-- Wrapping the Quantum Computing image with a link -->
+            <a href="{% url 'quantum_computing_page' %}">
+                <img src="{% static 'images/qua.jpg' %}" alt="Quantum Computing">
+            </a>
+            <div class="message">Quantum Computing</div>
+        </div>
+        <div>
+            <a href="{% url 'block_page' %}">
+                <img src="{% static 'images/blo.jpg' %}" alt="Blockchain">
+            </a>
+            <div class="message">Blockchain</div>
+        </div>
+        <div>
+            <a href="{% url 'augmented_page' %}">
+                <img src="{% static 'images/aug.jpg' %}" alt="Augmented Reality (AR)">
+            </a>
+            <div class="message">Augmented Reality (AR)</div>
+        </div>
+        <div>
+            <img src="{% static 'images/ai.jpeg' %}" alt="Artificial Intelligence (AI)">
+            <div class="message">Artificial Intelligence (AI)</div>
+        </div>
+        <div>
+            <img src="{% static 'images/mac.jpg' %}" alt="Machine Learning">
+            <div class="message">Machine Learning</div>
+        </div>
+        <div>
+            <img src="{% static 'images/vir.jpg' %}" alt="Virtual Reality (VR)">
+            <div class="message">Virtual Reality (VR)</div>
+        </div>
+        <div>
+            <img src="{% static 'images/iot.jpg' %}" alt="Internet of Things (IoT)">
+            <div class="message">Internet of Things (IoT)</div>
+        </div>
+    </div>
+
+    <!-- Electrical and Electronics Section -->
+    <div id="ele" class="section">
+        <div>
+            <a href="{% url 'smart_grids_page' %}">
+                <img src="{% static 'images/sma.jpg' %}" alt="Smart Grids">
+            </a>
+            <div class="message">Smart Grids</div>
+        </div>
+        <div>
+            <a href="{% url 'robotics_page' %}">
+                <img src="{% static 'images/robo.jpg' %}" alt="Robotics">
+            </a>
+            <div class="message">Robotics</div>
+        </div>
+        <div>
+            <img src="{% static 'images/powe.jpg' %}" alt="Power Electronics">
+            <div class="message">Power Electronics</div>
+        </div>
+        <div>
+            <img src="{% static 'images/wire.jpg' %}" alt="Wireless Power Transfer">
+            <div class="message">Wireless Power Transfer</div>
+        </div>
+        <div>
+            <img src="{% static 'images/aug.jpg' %}" alt="Augmented Reality">
+            <div class="message">Augmented Reality</div>
+        </div>
+    </div>
+    <!-- Passive Income Section -->
+    <div id="passive" class="section">
+        <div id="passive" class="section">
+            <div>
+                <img src="{% static 'images/aff.jpg' %}" alt="Affiliate Marketing">
+                <div class="message">Affiliate Marketing</div>
+            </div>
+            <div>
+                <img src="{% static 'images/park.jpg' %}" alt="Rent out Parking Space">
+                <div class="message">Rent out your Parking Space</div>
+            </div>
+            <div>
+                <img src="{% static 'images/digi.jpeg' %}" alt="Sell Digital Products">
+                <div class="message">Sell Digital Products</div>
+            </div>
+            <div>
+                <img src="{% static 'images/you.jpg' %}" alt="YouTube Channel">
+                <div class="message">YouTube Channel</div>
+            </div>
+        </div>        
+    </div>
+
+  
+    <script>
+        // Function to show the "Know" message box
+        function showKnowMessage() {
+            const messageBox = document.getElementById('message-box');
+            messageBox.style.display = 'block'; // Show the message box
+
+            // Add event listener to hide the message box when clicking anywhere
+            document.addEventListener('click', function hideMessage(event) {
+                // Ensure click is outside the message box
+                if (!messageBox.contains(event.target) && !event.target.classList.contains('know-btn')) {
+                    messageBox.style.display = 'none'; // Hide the message box
+                    document.removeEventListener('click', hideMessage); // Remove event listener
+                }
+            });
+        }
+
+        // Placeholder function for showing sections (ensure this is implemented as needed)
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'flex';
+        }
+    </script>
+    
+</body>
+</html>

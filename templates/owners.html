@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner</title>
+    <style>
+        /* Background settings */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url("{% static 'images/kano.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #e84118;
+            transform: scale(1.05);
+        }
+
+        /* Main container */
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            border-radius: 8px;
+            margin: 10px auto;
+            max-width: 600px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Owner Image */
+        .owner-image {
+            margin: 15px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .owner-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Owner Name */
+        .owner-name {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Contact Information */
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Suggestion Box */
+        .suggestion-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .suggestion-box label {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .suggestion-box textarea {
+            width: 100%;
+            max-width: 500px;
+            height: 80px;
+            padding: 8px;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .suggestion-box input[type="file"] {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 500px;
+            padding: 8px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+            background-color: #222;
+            color: white;
+        }
+
+        .suggestion-box button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .suggestion-box button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Thank You Message */
+        .thank-you-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffdd57;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function handleSubmit() {
+            const thankYouMessage = document.querySelector('.thank-you-message');
+            thankYouMessage.style.display = 'block';
+
+            setTimeout(() => {
+                goBack();
+            }, 2000); // Redirect after 2 seconds
+        }
+    </script>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <div class="container">
+        <!-- Owner Image -->
+        <img src="{% static 'images/sravan.jpeg' %}" alt="Owner Image" class="owner-image">
+        <div class="owner-name">Sravan Sathyan K</div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <p>For any enquiries, please contact:</p>
+            <p>Email: <a href="mailto:sravansathyank@gmail.com" style="color: #ffdd57;">sravansathyank@gmail.com</a></p>
+        </div>
+        <!-- Suggestion Box -->
+        <form method="POST" action="{% url 'send_email' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="suggestion-box">
+                <label for="suggestion">Your Suggestions:</label>
+                <textarea name="suggestion" id="suggestion" required></textarea>
+        
+                <label for="attachment">Attach File:</label>
+                <input type="file" name="attachment" id="attachment" required>
+        
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        
+        
+    </div>
+</body>
+</html>

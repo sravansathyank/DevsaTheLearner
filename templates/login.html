@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Style for the background image */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("{% static 'images/mouse2.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /* Attractive "DEVSA" heading */
+        .devsa-heading {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.7), 
+                0 0 20px rgba(255, 255, 255, 0.7), 
+                0 0 30px rgba(0, 255, 255, 1), 
+                0 0 40px rgba(0, 255, 255, 1),
+                0 0 50px rgba(0, 255, 255, 1),
+                0 0 60px rgba(0, 255, 255, 1),
+                0 0 70px rgba(0, 255, 255, 1);
+            animation: glowing 1.5s ease-in-out infinite;
+            position: absolute;
+            top: 5%; /* Adjusted top position to move it a bit higher */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        /* Glowing animation */
+        @keyframes glowing {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 1); }
+            50% { text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1); }
+            100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 1); }
+        }
+
+        /* Styling the login container */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for better contrast */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Attractive "DEVSA" heading at top middle -->
+    <div class="devsa-heading">DEVSA</div>
+
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <a href="{% url 'register' %}">Register Here</a>
+    </div>
+
+</body>
+</html>

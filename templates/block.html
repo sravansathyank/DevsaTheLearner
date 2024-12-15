@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            background-color: #f4f4f9;
+            background-image: url("{% static 'images/blocki.jpg' %}"); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        h1 {
+            margin-top: 80px;
+            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        .content {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            color: #0056b3;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            font-family: 'Open Sans', sans-serif;
+    font-weight: 300; 
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .image-container img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .video-container {
+            text-align: center;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .video-container iframe {
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'main' %}" class="back-btn">BACK</a>
+
+    <h1>BLOCKCHAIN</h1>
+
+    <div class="content">
+        <h2>What is Blockchain?</h2>
+        <p>Blockchain is a decentralized digital ledger that records transactions across many computers securely. It is known for its role in enabling cryptocurrencies like Bitcoin and Ethereum but has applications beyond finance.</p>
+        <h2>Applications</h2>
+        <p>Blockchain can be used in finance, healthcare, supply chain management, and secure data sharing.</p>
+        <div class="image-container">
+            <img src="{% static 'images/blo.jpg' %}" alt="Blockchain">
+        </div>
+        <div class="video-container">
+            <h2>Watch a Video on Robotics and Automation</h2>
+            <iframe width="660" height="371" src="https://www.youtube.com/embed/SSo_EIwHSd4" title="How does a blockchain work - Simply Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
