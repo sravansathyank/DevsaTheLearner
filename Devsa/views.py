@@ -35,6 +35,8 @@ def send_email(request):
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
+        first_name = request.POST.get('first_name', '')
+        last_name = request.POST.get('last_name', '')
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
@@ -52,6 +54,8 @@ def register(request):
             return redirect('register')
 
         user = User.objects.create_user(username=username, email=email, password=password)
+        user.first_name = first_name
+        user.last_name = last_name
         user.save()
         messages.success(request, "Account created successfully!")
         return redirect('login')
@@ -110,3 +114,7 @@ def awards_page(request):
 @login_required
 def owner_page(request):
     return render(request, 'owners.html')
+
+@login_required
+def sources_page(request):
+    return render(request, 'sources.html')
