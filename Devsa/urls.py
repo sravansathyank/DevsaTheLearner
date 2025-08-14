@@ -23,4 +23,5 @@ urlpatterns = [
     path('awards/', views.awards_page, name='awards_page'),
     path('owners/',views.owner_page,name='owner_page'),
     path('send-email/', views.send_email, name='send_email'),
+    path('sources/', views.sources_page, name='sources_page'),
 ]
