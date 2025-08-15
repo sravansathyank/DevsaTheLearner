@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Certificate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            background-image: url("{% static 'images/moon.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .devsa-heading {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.7), 
+                0 0 20px rgba(255, 255, 255, 0.7), 
+                0 0 30px rgba(0, 255, 255, 1), 
+                0 0 40px rgba(0, 255, 255, 1),
+                0 0 50px rgba(0, 255, 255, 1),
+                0 0 60px rgba(0, 255, 255, 1),
+                0 0 70px rgba(0, 255, 255, 1);
+            animation: glowing 1.5s ease-in-out infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes glowing {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 1); }
+            50% { text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1); }
+            100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 1); }
+        }
+
+        .certificate-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .certificate-image {
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .message {
+            display: none;
+            background-color: #f0f8ff;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        .download-btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background-color:rgb(153, 227, 209);
+        }
+
+        .back-btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color:rgb(153, 227, 209);
+        }
+    </style>
+</head>
+<body>
+    <!-- Heading -->
+    <div class="devsa-heading">DEVSA</div>
+
+    <!-- Certificate Container -->
+    <div class="certificate-container">
+        <!-- Display Certificate Image -->
+        <img src="{% static 'images/certificate.jpg' %}" alt="Certificate Image" class="certificate-image">
+
+        <!-- Message to show after click -->
+        <div class="message" id="message">
+            Detailed Certificates are not provided here since it is open for any users. Thanks for your visit.
+        </div>
+
+        <!-- Download Button -->
+        <button class="download-btn" onclick="downloadCertificate()">Get Certificate</button>
+
+        <!-- Back Button -->
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        function downloadCertificate() {
+            // Show the message
+            document.getElementById('message').style.display = 'block';
+
+            // Trigger the download of the certificate image
+            setTimeout(function() {
+                var link = document.createElement('a');
+                link.href = "{% static 'images/certificate.jpg' %}";
+                link.download = 'certificate.jpg';
+                link.click();
+            }, 3000); // Wait for 3 seconds before starting download
+        }
+
+        function goBack() {
+            // Go back to the previous page
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

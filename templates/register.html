@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        /* Apply a single background image to the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/mouse2.jpg' %}"); /* Single background image */
+            background-size: cover; /* Ensures the image covers the entire body */
+            background-position: center center; /* Center the image */
+            background-attachment: fixed; /* Keep the image fixed while scrolling */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style for the container to center the form */
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Adjusted for medium size */
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 30px; /* Adjusted padding */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stylish message at the top right corner */
+        .message {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animation for the message */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 1.5rem; /* Standard size */
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 1rem; /* Medium size */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px; /* Standard padding */
+            margin: 8px 0; /* Reduced margin */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem; /* Medium size */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Message at top right corner -->
+        <!--<div class="message">Waiting To Guide You</div>-->
+
+        <h1>Register</h1>
+
+        <!-- Registration form -->
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter a username" required>
+
+             <label for="first_name">First Name:</label>
+             <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+
+             <label for="last_name">Last Name:</label>
+             <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+
+            <label for="password2">Confirm Password:</label>
+            <input type="password" id="password2" name="password2" placeholder="Confirm your password" required>
+
+            <input type="submit" value="Register">
+        </form>
+
+        <a href="{% url 'login' %}">Back to Login</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/plain.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            color: #222;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .source-list {
+            margin-top: 10px;
+            padding-left: 18px;
+        }
+        .source-list li {
+            margin: 8px 0;
+        }
+        .back {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 14px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin: 16px 0;
+        }
+        .meta div {
+            background: #f5f7fb;
+            border: 1px solid #e3e7ef;
+            border-radius: 6px;
+            padding: 12px;
+        }
+        .note {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: #333;
+        }
+    </style>
+    <script>
+        function goBack(){ window.history.back(); }
+    </script>
+    </head>
+<body>
+    <div class="container">
+        <button class="back" onclick="goBack()">Back</button>
+        <h1>Sources and References</h1>
+        <p>Below are curated sources used to build the learning content across sectors.</p>
+
+        <div class="meta">
+            <div>
+                <strong>Documentation</strong>
+                <p>Official docs for technologies and frameworks referenced in modules.</p>
+            </div>
+            <div>
+                <strong>Research Papers</strong>
+                <p>Peer‑reviewed publications and arXiv preprints for deeper study.</p>
+            </div>
+            <div>
+                <strong>Tutorials</strong>
+                <p>Hands‑on guides and labs from reputable educators.</p>
+            </div>
+            <div>
+                <strong>Communities</strong>
+                <p>Forums and Q&A platforms for problem‑solving and updates.</p>
+            </div>
+        </div>
+
+        <h3>IT Sector</h3>
+        <ul class="source-list">
+            <li>Quantum Computing: IBM Quantum Docs, Microsoft Q# Docs, arXiv QC survey</li>
+            <li>Blockchain: Ethereum Docs, Hyperledger Fabric Docs, Bitcoin Whitepaper</li>
+            <li>AI/ML: scikit‑learn User Guide, TensorFlow Docs, PyTorch Tutorials</li>
+            <li>IoT: MQTT Spec, AWS IoT Core Docs, Eclipse IoT Working Group</li>
+        </ul>
+
+        <h3>Electrical & Electronics</h3>
+        <ul class="source-list">
+            <li>Smart Grids: IEEE Xplore, NREL Publications, Grid Modernization Initiative</li>
+            <li>Robotics: ROS Documentation, IEEE RAS, OpenCV Guides</li>
+            <li>Power Electronics: LTspice Manual, TI Application Notes, IEEE Journals</li>
+            <li>Wireless Power: Qi Standard Overview, IEEE Transactions on Power Electronics</li>
+        </ul>
+
+        <h3>General Learning</h3>
+        <ul class="source-list">
+            <li>MIT OpenCourseWare, Coursera Specializations, edX Programs</li>
+            <li>Stack Overflow, ResearchGate, Google Scholar</li>
+            <li>MDN Web Docs, W3C Recommendations</li>
+        </ul>
+
+        <p class="note">If you have a great source to add, head to the Owners page and submit it as a suggestion with an optional attachment.</p>
+    </div>
+</body>
+</html>
+
+

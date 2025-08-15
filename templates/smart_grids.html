@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Grids</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            background-image: url("{% static 'images/soon.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        h1 {
+            margin-top: 80px;
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .content {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .image-container img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popIn 1.5s ease;
+        }
+
+        .video-container iframe {
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'main' %}" class="back-btn">BACK</a>
+
+    <h1>SMART GRIDS</h1>
+
+    <div class="content">
+        <h2>Introduction to Smart Grids</h2>
+        <p>Smart grids are modernized electrical grids that use technology to improve the reliability, efficiency, and sustainability of electricity services. They integrate renewable energy sources and provide better monitoring and management of energy consumption.</p>
+
+        <h2>Key Features of Smart Grids</h2>
+        <p>Smart grids incorporate advanced technologies to enhance energy management and distribution. Some of the key features include:</p>
+        <ul>
+            <li>Real-time monitoring and control of power systems.</li>
+            <li>Integration of renewable energy sources such as solar and wind.</li>
+            <li>Advanced metering infrastructure for precise energy usage data.</li>
+            <li>Improved fault detection and self-healing capabilities.</li>
+        </ul>
+
+        <h2>Applications in Electrical and Electronics</h2>
+        <p>Smart grids have a wide range of applications in the Electrical and Electronics domain:</p>
+        <ul>
+            <li><strong>Energy Management:</strong> Enhancing energy efficiency and reducing wastage by monitoring real-time energy usage.</li>
+            <li><strong>Renewable Energy Integration:</strong> Supporting the integration of solar, wind, and other renewable energy sources into the grid.</li>
+            <li><strong>Electric Vehicles:</strong> Facilitating charging infrastructure and load management for electric vehicles.</li>
+            <li><strong>Automation:</strong> Automating power distribution and fault detection processes.</li>
+        </ul>
+
+        <div class="image-container">
+            <img src="{% static 'images/sma.jpg' %}" alt="Smart Grids">
+        </div>
+
+        <h2>Advantages of Smart Grids</h2>
+        <p>Some of the key benefits of smart grids include:</p>
+        <ul>
+            <li>Improved reliability and reduced power outages.</li>
+            <li>Lower operational costs for utilities.</li>
+            <li>Better integration of distributed energy resources.</li>
+            <li>Enhanced customer engagement through real-time energy usage information.</li>
+        </ul>
+
+        <div class="video-container">
+            <h2>Watch a Video on Smart Grids</h2>
+            <iframe src="https://www.youtube.com/embed/4L31dHXP6i0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
